@@ -1,0 +1,23 @@
+{
+  "name": "@phone/wordle-app",
+  "description": "Webcomponent wordle-app following open-wc recommendations",
+  "license": "MIT",
+  "author": "wordle-app",
+  "version": "0.0.0",
+  "main": "src/wordle-app.js",
+  "module": "src/wordle-app.js",
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "web-dev-server"
+  },
+  "dependencies": {
+    "@vaadin/button": "^23.2.6",
+    "@vaadin/vaadin": "^23.2.6",
+    "lit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@web/dev-server": "^0.1.28"
+  },
+  "customElements": "custom-elements.json"
+}

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "lerna": "^6.0.3"
+  },
+  "name": "Phone",
+  "workspaces": [
+    "packages/*"
+  ]
+}
