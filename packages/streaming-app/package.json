@@ -15,11 +15,7 @@
     "start": "web-dev-server"
   },
   "dependencies": {
-    "lit": "^2.0.2",
-    "@streaming/menu-component": "*",
-    "@streaming/profile-component": "*",
-    "@streaming/login-component": "*",
-    "@streaming/register-component": "*"
+    "lit": "^2.0.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.4",
