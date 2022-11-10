@@ -14,6 +14,9 @@ export class HomeComponent extends LitElement {
       applications: {
         type: Array,
       },
+      favApplications: {
+        type: Array,
+      },
     };
   }
 
@@ -21,6 +24,33 @@ export class HomeComponent extends LitElement {
     super();
     this.view = '';
     this.applications = [];
+    this.favApplications = [];
+  }
+
+  firstUpdated() {
+    this.filteredFavApplications();
+  }
+
+  filteredFavApplications() {
+    this.favApplications = this.applications.filter(
+      application =>
+        application.name.includes('Phone') ||
+        application.name.includes('Safari') ||
+        application.name.includes('Telegram') ||
+        application.name.includes('Spotify')
+    );
+  }
+
+  onSelectedApp(event) {
+    const application = event.currentTarget.application;
+    this.dispatchEvent(
+      new CustomEvent('selected-app', { detail: application })
+    );
+  }
+
+  onFavApp(event) {
+    const favApp = event.currentTarget.favApp;
+    this.dispatchEvent(new CustomEvent('fav-app', { detail: favApp }));
   }
 
   render() {
@@ -28,17 +58,52 @@ export class HomeComponent extends LitElement {
       <div id="home-container">
         <div id="applications-container">
           ${this.applications.map(application => {
-            return html`
-              <div id="application">
-                <img src="${application.icon}" />
-                <p>${application.name}</p>
-              </div>
-            `;
+            if (
+              application.name.includes('Phone') ||
+              application.name.includes('Safari') ||
+              application.name.includes('Telegram') ||
+              application.name.includes('Spotify')
+            ) {
+              return html``;
+            } else {
+              return html`
+                <div
+                  class="application"
+                  @click="${this.onSelectedApp}"
+                  .application="${application}"
+                >
+                  <img src="${application.icon}" />
+                  <p>${application.name}</p>
+                  ${application.notification !== 0
+                    ? html`<div class="notification-bubble">
+                        <p class="notification-number">
+                          ${application.notification}
+                        </p>
+                      </div>`
+                    : html``}
+                </div>
+              `;
+            }
           })}
         </div>
         <div id="dots">● ● ●</div>
         <div id="most-used-apps">
-        
+          ${this.favApplications.map(favApp => {
+            return html`
+              <div
+                class="fav-app"
+                @click="${this.onFavApp}"
+                .favApp="${favApp}"
+              >
+                <img src="${favApp.icon}" />
+                ${favApp.notification !== 0
+                  ? html`<div class="notification-bubble">
+                      <p class="notification-number">${favApp.notification}</p>
+                    </div>`
+                  : html``}
+              </div>
+            `;
+          })}
         </div>
       </div>
     `;

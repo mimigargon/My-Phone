@@ -2,16 +2,23 @@ import { css } from 'lit';
 
 export default css`
   #global-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-top: 30px;
+  }
+
+  #exterior-border {
     justify-content: center;
     align-items: center;
-    border: 10px solid rgb(46, 45, 45);
+    border: 10px solid rgb(18 17 17);
     width: 390px;
     height: 844px;
     border-radius: 70px;
     background-image: url(https://wallpapercave.com/wp/wp9394967.jpg);
     background-size: cover;
     color: white;
-    margin: 20px 700px;
   }
 
   #app-container {
@@ -32,14 +39,14 @@ export default css`
     align-items: flex-start;
     margin-top: -20px;
     place-content: center;
-    margin-left: 73px;
+    margin-left: 70px;
     
   }
 
   #left {
     font-size: 13px;
-    margin: 10px 20px 0px -60px;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 12px 20px 0px -60px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   }
 
   #notch {
@@ -64,12 +71,21 @@ export default css`
   }
 
   #lock-unlock {
-    background-color: rgb(46, 45, 45);
+    background-color: rgb(18 17 17);
     margin: -32px 639px;
     width: 5px;
     height: 114px;
     border: none;
     border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .notch-positioner {
+    margin: 0px -70px 804px -10px;
+  }
+
+  chat-component{
+    height: 768px;
   }
 
 `;

@@ -39,6 +39,10 @@ export default css`
     align-content: center;
     margin-bottom: 10px;
     margin-top: -20px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    max-height: 495px;
+    min-height: 495px;
   }
 
   #notification {
@@ -70,6 +74,10 @@ export default css`
     margin-right: 10px;
   }
 
+  .lockScreen-positioner {
+    margin: -75px 0px 100px 0px;
+  }
+
   #footer-icons {
     display: flex;
     align-items: center;
@@ -86,6 +94,7 @@ export default css`
     align-items: center;
     justify-content: center;
     align-content: center;
+    cursor: pointer;
   }
 
   #camera {
@@ -106,5 +115,7 @@ export default css`
     height: 5px;
     border-radius: 20px;
     margin-top: 20px;
+    cursor: pointer;
   }
+
 `;
