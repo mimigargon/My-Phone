@@ -265,6 +265,10 @@ export class PhoneApp extends LitElement {
     }
   }
 
+  backHome(event) {
+    this.view = "home";
+  }
+
   render() {
     return html`
       <div id="global-container">
@@ -304,7 +308,7 @@ export class PhoneApp extends LitElement {
                   @fav-app=${this.onFavApp}
                 ></home-component>`
               : html``}
-            ${this.view === "chat" ? html `<chat-component .contacts=${this.contacts}></chat-component>` : html ``}
+            ${this.view === "chat" ? html `<chat-component .contacts=${this.contacts} @back-home=${this.backHome}></chat-component>` : html ``}
             ${this.view === "gallery" ? html `<gallery-component></gallery-component>` : html ``}
             ${this.view === "player" ? html `<player-component></player-component>` : html ``}
             ${this.view === "streaming" ? html `<streaming-app></streaming-app>` : html ``}
